@@ -59,6 +59,56 @@ body {
   margin-top: 28px;
 }
 
+
+
+
+
+
+
+/******************************** - JOEL - */ 
+/*
+* Background-color = #eee
+* Grey border = #ddd
+* Theme colors = #AD1457  (DARK)
+                 #EC407A  (MEDIUM)
+                 #F8BBD0  (LIGHT)
+*
+*/
+
+.photo {
+  min-height: 200px;
+  background-color: #eee;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.details {
+
+}
+.description {
+
+}
+.rating-mobile {
+  
+}
+.rating-default {
+
+}
+
+
+
+
+
+
+
+
+
+
+/******************************** - JOEL - */
+
+
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
