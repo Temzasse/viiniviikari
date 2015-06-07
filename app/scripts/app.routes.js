@@ -12,6 +12,10 @@ angular.module('viiniviikari')
 	    templateUrl: 'views/posts.html',
 	    controller: 'PostsCtrl as vm'
 	  })
+	  .when('/admin/addpost', {
+	    templateUrl: 'views/admin/addpost.html',
+	    controller: 'addPostCtrl as vm'
+	  })
 	  .otherwise({
 	    redirectTo: '/'
 	  });
