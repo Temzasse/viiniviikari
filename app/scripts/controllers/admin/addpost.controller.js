@@ -5,12 +5,23 @@ angular
 	.controller('addPostCtrl', function(Post){
 		/* jshint validthis: true */
 		var vm = this;
-		vm.postTypes = ['Viini', 'Ruoka'];
+		vm.foodOptions = ['Nauta', 'Porsas', 'Lammas', 'Kana', 'Riista', 'Rasvainen kala', 'Vähärasvainen kala', 'Äyriäiset', 'Pasta', 'Salaatti']
+		// 
 		vm.post = {
 			title : '',
 			imgUrl : '',
-			details : [],
+			details : 
+			{
+				grapes : '',
+				year : '',
+				producer : '',
+				type : '',
+				country : '',
+				location : '',
+				litres : ''
+			},
 			description : '',
+			foodOptions : [],
 			rating : 0
 		};
 
@@ -20,25 +31,43 @@ angular
 		///////////////////////////
 
 		function submitPost(){
-			Post.save(vm.post);
-			// tyhjennä post variable
-			vm.post = {
-				title : '',
-				imgUrl : '',
-				details : [],
-				description : '',
-				rating : 0
-			};
+			Post.create(vm.post).then(function(e){
+				// tyhjennä post variable
+				console.log(e);
+				clearPostForm();
+			});
+			
 		}
 
 		function validatePostData(){
 			// validaatiot tähän...
-			var valid = true;
+			console.log(vm.post);
+			vm.submitPost();
+			// var valid = true;
 
-			if(valid)
-				vm.submitPost();
-			else
-				console.log("invalid data");
+			// if(valid)
+			// 	vm.submitPost();
+			// else
+			// 	console.log('invalid data');
+		}
+		function clearPostForm(){
+			vm.post = {
+				title : '',
+				imgUrl : '',
+				details : 
+				{
+					grapes : [],
+					year : '',
+					producer : '',
+					type : '',
+					country : '',
+					location : '',
+					litres : ''
+				},
+				description : '',
+				foodOptions : [],
+				rating : 0
+			};
 		}
 
 	});

@@ -9,10 +9,10 @@
 
 angular
 	.module('viiniviikari')
-	.controller('PostsCtrl', function(){
+	.controller('PostsCtrl', function(Post){
 		/* jshint validthis: true */
 		var vm = this;
-		vm.testi = 'moi';
+		vm.posts = [];
 
 		activate();
 		return vm;
@@ -22,6 +22,8 @@ angular
 
 		function activate(){
 			console.log('hae kaikki postit');
+			vm.posts = Post.all;
+			console.log(vm.posts);
 		}
 	});
 

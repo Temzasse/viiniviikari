@@ -5,10 +5,10 @@ angular.module('viiniviikari')
 .config(function ($routeProvider) {
 	$routeProvider
 	  .when('/', {
-	    templateUrl: 'views/home.html',
-	    controller: 'HomeCtrl'
+	    templateUrl: 'views/posts.html',
+	    controller: 'PostsCtrl as vm'
 	  })
-	  .when('/posts', {
+	  .when('/viini/:id', {
 	    templateUrl: 'views/posts.html',
 	    controller: 'PostsCtrl as vm'
 	  })

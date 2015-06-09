@@ -1,25 +1,97 @@
+<!-- 
+vanha maailma - uusi maailma
+maakunta
+alkuperäisalue / tuotantoalue
+viinityyppi
+kylä
+palsta
+linkki alkoon / muu
+price-range
+monta luokkaa:
+- gullable
+- everyday wine
+- fine dining
+- expert
+hintahaarukka 
+-->
+
 <div class="add-post-page">
 	<div class="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2">
 		<h1>Lisää uusi arvostelu</h1>
-		<form ng-submit="vm.validatePost()" class="form inline-form">
-			<!-- <select>
-				<option selected disabled>Valitse Kategoria</option>
-				<option ng-repeat="type in vm.postTypes">{{type}}</option>
-			</select> -->
-			<label>Arvostelun otsikko:</label><input ng-model="vm.post.title" type="text" autofocus require placeholder="Anna otsikko"  class="form-control">
+		<form ng-submit="vm.validatePostData()" class="form inline-form">
+			<label class="main-label">Kuva</label>
+			<label>Kopio Flickr kuvan URL klikkaamalla Flickr:ssä kuvan alalaidassa olevaa 'Share' ikonia ja maalaa 'HTML' tabin alla oleva teksti</label>
+			<input class="form-control" ng-model="vm.post.imgUrl" type="url">
 			<br>
-			<label>Yksityiskohdat:</label>
-			<div>
 
-			</div>
-			<div class="container-fluid text-center">
-				<button ng-click="vm.addDetailField()" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
-			</div>
-			<label>Kuvaus:</label><textarea ng-model="vm.post.description" type="text" require placeholder="Anna kuvaus" class="form-control"></textarea>
+			<label class="main-label">Arvostelun otsikko:</label>
+			<input ng-model="vm.post.title" type="text" autofocus  placeholder="Esim: 'Painter's Cove Shiraz Cabernet 2014'"  class="form-control">
 			<br>
-			<label>Arvosana:</label><input ng-model="vm.post.rating" type="number" min="0" max="100" require placeholder="Anna arvosana" class="form-control">
+
+			<label class="main-label">Valitse viini tyyppi:</label>
+			<div class="wine-type-choices">
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="red">
+					Punaviini
+				</label>
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="white">
+					Valkoviini
+				</label>
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="rose">
+					Roseviini
+				</label>
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="dessert">
+					Jälkiruokaviini
+				</label>
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="sparkling">
+					Kuohuviini
+				</label>
+				<label>
+					<input type="radio" ng-model="vm.post.details.type" value="champagne">
+					Samppanja
+				</label>
+			</div>
 			<br>
-			<button type="submit">Tallenna</button>
+
+			<label class="main-label">Yksityiskohdat:</label>
+			<br>
+			<label>Rypäleet</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.grapes" placeholder="Erottele pilkulla ja välilyönnillä">
+			<br>
+			<label>Tuottaja</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.producer">
+			<br>
+			<label>Maa</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.country">
+			<br>
+			<label>Alue</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.location">
+			<br>
+			<label>Vuosi</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.year">
+			<br>
+			<label>Litramäärä</label>
+			<input class="form-control" type="text" ng-model="vm.post.details.litres" placeholder="Esim: 0.75 tai 1">
+			<br>
+
+			<label class="main-label">Kuvaus:</label><textarea ng-model="vm.post.description" type="text"  placeholder="Anna kuvaus" class="form-control"></textarea>
+			<br>
+
+			<label class="main-label">Mitkä ruoat sopivat tämän viinin kanssa:</label>
+			<label>Paina 'Ctrl' tai 'Cmd' pohjassa lisääksesi monta vaihtoehtoa</label>
+			<br>
+			<select ng-model="vm.post.foodOptions" multiple class="form-control" ng-options="option for option in vm.foodOptions">
+			</select>
+			<br>
+			<br>
+
+			<label class="main-label">Arvosana:</label><input ng-model="vm.post.rating" type="number" min="0" max="100"  placeholder="Anna arvosana" class="form-control">
+			<br>
+			<button class="btn btn-success" type="submit">Tallenna</button>
 		</form>
 	</div>
 </div>

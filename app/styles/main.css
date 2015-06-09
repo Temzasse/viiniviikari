@@ -19,7 +19,6 @@ body {
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
 }
 /* Make the masthead heading the same height as the navigation */
@@ -58,6 +57,37 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
+
+
+
+
+/***************
+* Add post page
+****************/
+.add-post-page label{
+  color: #888;
+}
+.add-post-page .main-label{
+  font-size: 18px;
+  color: initial;
+}
+.wine-type-choices label{
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
