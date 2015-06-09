@@ -12,13 +12,13 @@ angular
 			imgUrl : '',
 			details : 
 			{
-				grapes : '',
-				year : '',
-				producer : '',
-				type : '',
-				country : '',
-				location : '',
-				litres : ''
+				grapes : {label:'Rypäleet', content: ''},
+				year : {label:'Vuosi', content: ''},
+				producer : {label:'Tuottaja', content: ''},
+				type : {label:'Tyyppi', content: ''},
+				country : {label:'Maa', content: ''},
+				location : {label:'Alue', content: ''},
+				litres : {label:'Litramäärä', content: ''},
 			},
 			description : '',
 			foodOptions : [],
@@ -56,13 +56,13 @@ angular
 				imgUrl : '',
 				details : 
 				{
-					grapes : [],
-					year : '',
-					producer : '',
-					type : '',
-					country : '',
-					location : '',
-					litres : ''
+					grapes : {label:'Rypäleet', content: ''},
+					year : {label:'Vuosi', content: ''},
+					producer : {label:'Tuottaja', content: ''},
+					type : {label:'Tyyppi', content: ''},
+					country : {label:'Maa', content: ''},
+					location : {label:'Alue', content: ''},
+					litres : {label:'Litramäärä', content: ''},
 				},
 				description : '',
 				foodOptions : [],

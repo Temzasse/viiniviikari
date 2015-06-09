@@ -12,10 +12,10 @@ angular
 	.controller('PostsCtrl', function(Post){
 		/* jshint validthis: true */
 		var vm = this;
+
 		vm.posts = [];
 
 		activate();
-		return vm;
 		/////////////////////
 
 
@@ -25,6 +25,7 @@ angular
 			vm.posts = Post.all;
 			console.log(vm.posts);
 		}
+
 	});
 
 

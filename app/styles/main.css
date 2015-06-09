@@ -59,7 +59,14 @@ body {
 }
 
 
-
+/*******************************************
+* Background-color    =     #eee
+* Grey border         =     #ddd
+* Theme colors        =     #AD1457  (DARK)
+*                           #EC407A  (MEDIUM)
+*                           #F8BBD0  (LIGHT)
+*
+********************************************/
 
 
 /***************
@@ -76,13 +83,27 @@ body {
   margin-right: 10px;
 }
 
+/***************
+* All posts page
+****************/
+.photo {
+  min-height: 200px;
+  background-color: #eee;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.details {
 
+}
+.description {
 
-
-
-
-
-
+}
+.rating-mobile {
+  
+}
+.rating-default {
+}
 
 
 
