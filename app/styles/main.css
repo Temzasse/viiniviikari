@@ -33,7 +33,7 @@ body {
 .footer {
   padding-top: 19px;
   color: #777;
-  border-top: 1px solid #e5e5e5;
+  /*border-top: 1px solid #e5e5e5;*/
 }
 
 .container-narrow > hr {
@@ -79,8 +79,24 @@ body {
   font-size: 18px;
   color: initial;
 }
-.wine-type-choices label{
+.form-section{
+  border-left: 5px solid #ddd;
+  padding: 10px;
+  position: relative;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.form-section.colorfocus{
+  border-left: 5px solid #AD1457;
+  background-color: #eee;
+}
+.form-section .wine-type-choices label{
   margin-right: 10px;
+}
+span.help-text{
+  font-size: 12px;
+  color: #666;
+  display: inline-block;
 }
 
 /***************

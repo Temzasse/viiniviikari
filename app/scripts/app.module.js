@@ -18,6 +18,7 @@ angular.module('viiniviikari', [
   'ngRoute',
   'ngSanitize',
   'ngTouch',
-  'firebase'
+  'firebase',
+  'ngTagsInput'
 ])
 .constant('FIREBASE_URL', 'https://shining-inferno-4229.firebaseio.com/');
