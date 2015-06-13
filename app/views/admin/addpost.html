@@ -1,18 +1,14 @@
 <!-- 
-vanha maailma - uusi maailma
 maakunta
 alkuperäisalue / tuotantoalue
 viinityyppi
 kylä
 palsta
-linkki alkoon / muu
-price-range
 monta luokkaa:
-- gullable
 - everyday wine
 - fine dining
 - expert
-hintahaarukka 
+hintahaarukka
 -->
 
 <div class="add-post-page">
@@ -22,42 +18,45 @@ hintahaarukka
 
 			<div class="form-section colorfocus" color-focus>
 				<label class="main-label">Arvostelun otsikko:</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.title}"></span>
 				<input ng-model="vm.post.title" type="text" autofocus required placeholder="Esim: 'Painter's Cove Shiraz Cabernet 2014'"  class="form-control">
 			</div>
 			<br>
 
 			<div class="form-section" color-focus>
-				<label class="main-label">Kuva</label>
+				<label class="main-label">Lisää kuva:</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.imgUrl}"></span>
 				<span class="help-text">Kopio Flickr kuvan URL klikkaamalla Flickr:ssä kuvan alalaidassa olevaa 'Share' ikonia ja maalaa 'HTML' tabin alla oleva teksti.</span>
-				<input class="form-control" ng-model="vm.post.imgUrl" type="url">
+				<input class="form-control" ng-model="vm.post.imgUrl" type="url" placeholder="Esim: https://c1.staticflickr.com/x/xx/xxx_size.jpg">
 			</div>
 			<br>
 
 			<div class="form-section" color-focus>
 				<label class="main-label">Valitse viini tyyppi:</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.type.content	}"></span>
 				<div class="wine-type-choices">
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="red">
+						<input type="radio" ng-model="vm.post.details.type.content" value="red">
 						Punaviini
 					</label>
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="white">
+						<input type="radio" ng-model="vm.post.details.type.content" value="white">
 						Valkoviini
 					</label>
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="rose">
+						<input type="radio" ng-model="vm.post.details.type.content" value="rose">
 						Roseviini
 					</label>
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="dessert">
+						<input type="radio" ng-model="vm.post.details.type.content" value="dessert">
 						Jälkiruokaviini
 					</label>
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="sparkling">
+						<input type="radio" ng-model="vm.post.details.type.content" value="sparkling">
 						Kuohuviini
 					</label>
 					<label>
-						<input type="radio" ng-model="vm.post.details.type" value="champagne">
+						<input type="radio" ng-model="vm.post.details.type.content" value="champagne">
 						Samppanja
 					</label>
 				</div>
@@ -69,6 +68,7 @@ hintahaarukka
 				<span class="help-text">(Huom! Voit jättää kenttiä tyhjiksi)</span>
 				<br>
 				<label>Rypäleet</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.grapes.content[0]}"></span>
 				<span class="help-text">Kun alat kirjoittamaan voit valita rypäleen aukeavasta listasta tai kirjoittaa uuden rypäleen nimen ja painaa rivinvaihtoa.</span>
 				<tags-input ng-model="vm.post.details.grapes.content" placeholder="Kirjoita rypäleen nimi">
 			    	<auto-complete source="vm.loadAutocompleteTags($query)"></auto-complete>
@@ -76,36 +76,44 @@ hintahaarukka
 				<!-- <input class="form-control" type="text" ng-model="vm.post.details.grapes.content" placeholder="Erottele pilkulla ja välilyönnillä"> -->
 				<br>
 				<label>Vuosi</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.year.content}"></span>
 				<input class="form-control" type="number" min="1800" max="{{vm.currentYear}}" ng-model="vm.post.details.year.content" required>
 				<br>
 				<label>Tuottaja</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.producer.content}"></span>
 				<input class="form-control" type="text" ng-model="vm.post.details.producer.content" required>
 				<br>
 				<label>Maa</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.country.content}"></span>
 				<input class="form-control" type="text" ng-model="vm.post.details.country.content" required>
 				<br>
 				<label>Alue</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.location.content}"></span>
 				<input class="form-control" type="text" ng-model="vm.post.details.location.content">
 				<br>
 				<label>Palsta</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.plot.content}"></span>
 				<input class="form-control" type="text" ng-model="vm.post.details.plot.content">
 				<br>
 				<label>Litramäärä</label>
-				<input class="form-control" type="text" ng-model="vm.post.details.litres.content" placeholder="Esim: 0.75 tai 1">
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.litres.content}"></span>
+				<input class="form-control" type="number" min="0" step="0.01" ng-model="vm.post.details.litres.content" placeholder="Esim: 0.75 tai 1">
 				<br>
 				<label>Hintaluokka</label>
-				<input class="form-control" type="text" ng-model="vm.post.details.price.content" placeholder="Esim: 10€ tai 25€">
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.details.price.content}"></span>
+				<input class="form-control" type="number" min="1" ng-model="vm.post.details.price.content" placeholder="Esim: 10 tai 25">
 			</div>
 			<br>
 
 			<div class="form-section" color-focus>
-				<label class="main-label">Kuvaus:</label>
+				<label class="main-label">Kuvaus:</label><span class="glyphicon glyphicon-ok" ng-class="{hidden : vm.post.description == ''}"></span>
 				<textarea ng-model="vm.post.description" type="text" required placeholder="Anna vapaamuotoinen kuvaus viinistä" class="form-control"></textarea>
 			</div>
 			<br>
 
 			<div class="form-section" color-focus>
 				<label class="main-label">Mitkä ruoat sopivat tämän viinin kanssa:</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : !vm.post.foodOptions[0]}"></span>
 				<span class="help-text">Paina 'Ctrl' tai 'Cmd' pohjassa lisääksesi monta vaihtoehtoa</span>
 				<br>
 				<select ng-model="vm.post.foodOptions" multiple class="form-control" ng-options="option for option in vm.foodOptions">
@@ -115,6 +123,8 @@ hintahaarukka
 			<br>
 
 			<div class="form-section wine-category-choices" color-focus>
+				<label class="main-label">Kategoria:</label>
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : vm.post.category == ''}"></span>
 				<label ng-repeat="category in vm.categoryOptions" style="margin-left:10px;">
 					<input type="radio" ng-model="vm.post.category" ng-value="category">
 					{{category}}
@@ -123,7 +133,9 @@ hintahaarukka
 			<br>
 			<div class="form-section" color-focus>
 				<label class="main-label">Arvosana:</label>
-				<input ng-model="vm.post.rating" type="number" min="0" max="5"  placeholder="Anna arvosana" class="form-control">
+				<span class="glyphicon glyphicon-ok" ng-class="{hidden : vm.post.rating == 0}"></span>
+				<span class="help-text">(1-5)</span>
+				<input ng-model="vm.post.rating" type="number" min="1" max="5" placeholder="Anna arvosana" class="form-control">
 			</div>
 			<br>
 			<button class="btn btn-success" type="submit">Tallenna</button>

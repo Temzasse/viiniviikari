@@ -41,12 +41,14 @@ angular
 
 		function loadAutocompleteTags(query){
 			var suggestions = [];
+			var added = [];
 			for (var i = vm.allPosts.length - 1; i >= 0; i--) {
 				for (var j = vm.allPosts[i].details.grapes.content.length - 1; j >= 0; j--) {
-					// muuta ehdotus lower case
-					var grape = vm.allPosts[i].details.grapes.content[j].text.toLowerCase();
-					// indexOf kertoo löytyykö querya grapesta
-					if( grape.indexOf( query.toLowerCase() ) >= 0 ){
+					// muuta ehdotus lower case ja tarkista löytyykö query siitä
+					if( vm.allPosts[i].details.grapes.content[j].text.toLowerCase().indexOf( query.toLowerCase() ) >= 0 
+						&& added.indexOf(vm.allPosts[i].details.grapes.content[j].text) === -1){
+						// lisätään myös toiseen listaan josta on helpompi tarkistaa onko jotain rypälettä jo lisätty
+						added.push(vm.allPosts[i].details.grapes.content[j].text);
 						// jos löytyy --> lisää ehdotuksiin
 						suggestions.push({text : vm.allPosts[i].details.grapes.content[j].text});
 					}
@@ -81,7 +83,7 @@ angular
 				imgUrl : '',
 				details : 
 				{
-					grapes : {label:'Rypäleet', content: ''},
+					grapes : {label:'Rypäleet', content: []},
 					year : {label:'Vuosi', content: ''},
 					producer : {label:'Tuottaja', content: ''},
 					type : {label:'Tyyppi', content: ''},
@@ -89,7 +91,7 @@ angular
 					location : {label:'Alue', content: ''},
 					plot : {label:'Palsta', content: ''},
 					litres : {label:'Litramäärä', content: ''},
-					prize : {label:'Hintaluokka', content: ''}
+					prize : {label:'Hintaluokka', content: 0}
 				},
 				category : '',
 				description : '',

@@ -93,6 +93,11 @@ body {
 .form-section .wine-type-choices label{
   margin-right: 10px;
 }
+.form-section .glyphicon-ok{
+  float: right;
+  font-size: 15px;
+  color: #009900;
+}
 span.help-text{
   font-size: 12px;
   color: #666;
